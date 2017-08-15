@@ -26,8 +26,8 @@ public partial class admin_admin : System.Web.UI.Page
         DataTable dataTable = new DataTable();
         SqlDataAdapter adapter = new SqlDataAdapter("SELECT Username,HoTen,Email, Phonenumber,MaQuyen,ImagePro,Address FROM NguoiDung", con);
         adapter.Fill(dataTable);
-       //GridView1.DataSource = dataTable;
-       //GridView1.DataBind();
+       GridView1.DataSource = dataTable;
+       GridView1.DataBind();
 
     }
     private void LoadData(string username)
