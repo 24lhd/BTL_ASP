@@ -29,7 +29,7 @@ public partial class admin_dangnhap : System.Web.UI.Page
             }
             else
             {
-                Response.Redirect("nguoidung.aspx?username=" + txtuser.Text);
+                Response.Redirect("~/nguoidung/nguoidung.aspx?username=" + txtuser.Text);
             }
 
         }
@@ -41,11 +41,15 @@ public partial class admin_dangnhap : System.Web.UI.Page
     }
     protected void btdangky_Click(object sender, EventArgs e)
     {
+        string a = "WR";
+        string b = "logo.jpg";
         sqldky.InsertParameters["Username"].DefaultValue = txttendn.Text;
         sqldky.InsertParameters["Password"].DefaultValue = txtmk.Text;
         sqldky.InsertParameters["HoTen"].DefaultValue = txthten.Text;
         sqldky.InsertParameters["Email"].DefaultValue = txtemail.Text;
         sqldky.InsertParameters["Phonenumber"].DefaultValue = txtsdt.Text;
+        sqldky.InsertParameters["MaQuyen"].DefaultValue = a;
+        sqldky.InsertParameters["ImagePro"].DefaultValue = b;
         sqldky.InsertParameters["Address"].DefaultValue = txtdc.Text;
         try
         {

@@ -1,0 +1,117 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="Masterusernam.master.cs" Inherits="nguoidung_Masterusernam" %>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title></title>
+    <asp:ContentPlaceHolder id="head" runat="server">
+    </asp:ContentPlaceHolder>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <style>
+      ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    
+    background-color: #f1f1f1;
+}
+
+li a {
+    display: block;
+    color: #000;
+    padding: 8px 16px;
+    text-decoration: none;
+}
+
+li a.active {
+    background-color: #4CAF50;
+    color: white;
+}
+
+li a:hover:not(.active) {
+    background-color: #555;
+    color: white;
+}
+.navi{
+width: 20%;
+ background: #567;
+ float: left;
+}
+
+.content{
+  width: 80%;
+  background: #123;
+  float: right;
+}
+
+body{
+    font-family: Arial, Tahoma;
+    font-size: 12px;
+}
+ 
+#main{
+    width: 100%;
+    padding: 0;
+    margin-left: auto;
+    margin-right: auto;
+}
+ #head{
+    height: 100px;
+    background-color: #F5F5F5;
+    border: 1px solid #CDCDCD;
+    margin-bottom:5px;
+     width: 90%;
+}
+ 
+#left{
+     width: 20%;
+     min-height: 400px;
+     border: 1px solid #CDCDCD;
+     float:left;
+      
+     margin-bottom: 5px;
+}
+#content{
+     width: 70%;
+     min-height: 400px;
+     border: 1px solid #CDCDCD;
+     float:left;
+     margin-left: 5px;
+     margin-right: 5px;
+     margin-bottom: 5px;
+}
+  
+    </style>
+</head>
+<body>
+    <form id="form1" runat="server">
+    <div id="head">
+        <img src="../public/image/logo1.jpg" height="100px" width="150px" />
+    </div>     
+<div id="main">
+    <div id="left">
+
+<ul>
+  <li><a class="active" href="../theloai/home.aspx">Home</a></li>
+    <li><a class="active" href="../theloai/home.aspx">Thêm báo</a></li>
+    <li><a class="active" href="../theloai/home.aspx">Sửa báo</a></li>
+</ul>
+    </div>
+    <div id="content">
+    
+        <div>
+        <asp:ContentPlaceHolder id="ContentPlaceHolder1" runat="server">
+        
+        </asp:ContentPlaceHolder>
+    </div>
+     
+    </div>
+    
+ 
+</div>
+   
+    </form>
+</body>
+</html>
