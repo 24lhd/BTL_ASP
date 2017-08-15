@@ -18,12 +18,7 @@ public partial class admin_admin : System.Web.UI.Page
             load();
         }
     }
-    protected void bttimkiem_Click(object sender, EventArgs e)
-    {
-        
-
-       
-    }
+   
     protected void load()
     {
         SqlConnection con = new SqlConnection(connectionString);
