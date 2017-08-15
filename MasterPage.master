@@ -11,9 +11,15 @@
     <style type="text/css">
         body {
             font-family: Arial, Tahoma;
-            font-size: 12px;
+            font-size: 19px;
+          
         }
+           img{
+               align="middle";
+                 display: block;
+    margin: 0 auto;
 
+           }
         #main {
             width: 1000px;
             padding: 0;

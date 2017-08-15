@@ -19,17 +19,17 @@ public partial class admin_upload_upload : System.Web.UI.Page
                 string fileName = Path.GetFileName(filePath);
                 files.Add(new ListItem(fileName, "~/public/image/" + fileName));
             }
-            GridView1.DataSource = files;
-            GridView1.DataBind();
+            GridViewDemo.DataSource = files;
+            GridViewDemo.DataBind();
         }
     }
    
     protected void Upload(object sender, EventArgs e)
     {
-        if (FileUpload1.HasFile)
+        if (FileUploadDemo.HasFile)
         {
-            string fileName = Path.GetFileName(FileUpload1.PostedFile.FileName);
-            FileUpload1.PostedFile.SaveAs(Server.MapPath("~/public/image/") + fileName);
+            string fileName = Path.GetFileName(FileUploadDemo.PostedFile.FileName);
+            FileUploadDemo.PostedFile.SaveAs(Server.MapPath("~/public/image/") + fileName);
             Response.Redirect(Request.Url.AbsoluteUri);
         }
     }
