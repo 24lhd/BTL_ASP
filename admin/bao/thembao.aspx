@@ -5,14 +5,27 @@
         .auto-style1 {
             width: 100%;
         }
+        .auto-style3 {
+            width: 85px;
+        }
+        .auto-style5 {
+            width: 105px;
+        }
     </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
     <script src="../ckeditor/ckeditor.js"></script>
 
-    <asp:SqlDataSource ID="dsThemBao" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>" DeleteCommand="DELETE FROM [BaiBao] WHERE [MaBaiBao] = @MaBaiBao" InsertCommand="INSERT INTO [BaiBao] ([MaBaiBao], [MaTheLoai], [Title], [Image], [MoTaNgan], [NoiDung], [Username], [NgayDang]) VALUES (@MaBaiBao, @MaTheLoai, @Title, @Image, @MoTaNgan, @NoiDung, @Username, @NgayDang)" SelectCommand="SELECT * FROM [BaiBao]" UpdateCommand="UPDATE [BaiBao] SET [MaTheLoai] = @MaTheLoai, [Title] = @Title, [Image] = @Image, [MoTaNgan] = @MoTaNgan, [NoiDung] = @NoiDung, [Username] = @Username, [NgayDang] = @NgayDang WHERE [MaBaiBao] = @MaBaiBao">
+    <asp:SqlDataSource ID="dsThemBao" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>" DeleteCommand="DELETE FROM [BaiBao] WHERE [MaBaiBao] = @original_MaBaiBao AND (([MaTheLoai] = @original_MaTheLoai) OR ([MaTheLoai] IS NULL AND @original_MaTheLoai IS NULL)) AND (([Title] = @original_Title) OR ([Title] IS NULL AND @original_Title IS NULL)) AND (([Image] = @original_Image) OR ([Image] IS NULL AND @original_Image IS NULL)) AND (([MoTaNgan] = @original_MoTaNgan) OR ([MoTaNgan] IS NULL AND @original_MoTaNgan IS NULL)) AND (([NoiDung] = @original_NoiDung) OR ([NoiDung] IS NULL AND @original_NoiDung IS NULL)) AND (([Username] = @original_Username) OR ([Username] IS NULL AND @original_Username IS NULL)) AND (([NgayDang] = @original_NgayDang) OR ([NgayDang] IS NULL AND @original_NgayDang IS NULL))" InsertCommand="INSERT INTO [BaiBao] ([MaBaiBao], [MaTheLoai], [Title], [Image], [MoTaNgan], [NoiDung], [Username], [NgayDang]) VALUES (@MaBaiBao, @MaTheLoai, @Title, @Image, @MoTaNgan, @NoiDung, @Username, @NgayDang)" SelectCommand="SELECT * FROM [BaiBao]" UpdateCommand="UPDATE [BaiBao] SET [MaTheLoai] = @MaTheLoai, [Title] = @Title, [Image] = @Image, [MoTaNgan] = @MoTaNgan, [NoiDung] = @NoiDung, [Username] = @Username, [NgayDang] = @NgayDang WHERE [MaBaiBao] = @original_MaBaiBao AND (([MaTheLoai] = @original_MaTheLoai) OR ([MaTheLoai] IS NULL AND @original_MaTheLoai IS NULL)) AND (([Title] = @original_Title) OR ([Title] IS NULL AND @original_Title IS NULL)) AND (([Image] = @original_Image) OR ([Image] IS NULL AND @original_Image IS NULL)) AND (([MoTaNgan] = @original_MoTaNgan) OR ([MoTaNgan] IS NULL AND @original_MoTaNgan IS NULL)) AND (([NoiDung] = @original_NoiDung) OR ([NoiDung] IS NULL AND @original_NoiDung IS NULL)) AND (([Username] = @original_Username) OR ([Username] IS NULL AND @original_Username IS NULL)) AND (([NgayDang] = @original_NgayDang) OR ([NgayDang] IS NULL AND @original_NgayDang IS NULL))" ConflictDetection="CompareAllValues" OldValuesParameterFormatString="original_{0}">
         <DeleteParameters>
-            <asp:Parameter Name="MaBaiBao" Type="String" />
+            <asp:Parameter Name="original_MaBaiBao" Type="String" />
+            <asp:Parameter Name="original_MaTheLoai" Type="String" />
+            <asp:Parameter Name="original_Title" Type="String" />
+            <asp:Parameter Name="original_Image" Type="String" />
+            <asp:Parameter Name="original_MoTaNgan" Type="String" />
+            <asp:Parameter Name="original_NoiDung" Type="String" />
+            <asp:Parameter Name="original_Username" Type="String" />
+            <asp:Parameter Name="original_NgayDang" Type="DateTime" />
         </DeleteParameters>
         <InsertParameters>
             <asp:Parameter Name="MaBaiBao" Type="String" />
@@ -32,120 +45,207 @@
             <asp:Parameter Name="NoiDung" Type="String" />
             <asp:Parameter Name="Username" Type="String" />
             <asp:Parameter Name="NgayDang" Type="DateTime" />
-            <asp:Parameter Name="MaBaiBao" Type="String" />
+            <asp:Parameter Name="original_MaBaiBao" Type="String" />
+            <asp:Parameter Name="original_MaTheLoai" Type="String" />
+            <asp:Parameter Name="original_Title" Type="String" />
+            <asp:Parameter Name="original_Image" Type="String" />
+            <asp:Parameter Name="original_MoTaNgan" Type="String" />
+            <asp:Parameter Name="original_NoiDung" Type="String" />
+            <asp:Parameter Name="original_Username" Type="String" />
+            <asp:Parameter Name="original_NgayDang" Type="DateTime" />
         </UpdateParameters>
     </asp:SqlDataSource>
      <form id="form1" runat="server">
-         <asp:FormView ID="FormView1" runat="server" AllowPaging="True" DataKeyNames="MaBaiBao" DataSourceID="dsThemBao" OnPageIndexChanging="FormView1_PageIndexChanging">
+         <asp:FormView ID="FormView1" runat="server" AllowPaging="True" DataKeyNames="MaBaiBao" DataSourceID="dsThemBao">
              <EditItemTemplate>
-                 MaBaiBao:
-                 <asp:Label ID="MaBaiBaoLabel1" runat="server" Text='<%# Eval("MaBaiBao") %>' />
-                 <br />
-                 MaTheLoai:
-                 <asp:TextBox ID="MaTheLoaiTextBox" runat="server" Text='<%# Bind("MaTheLoai") %>' />
-                 <br />
-                 Title:
-                 <asp:TextBox ID="TitleTextBox" runat="server" Text='<%# Bind("Title") %>' />
-                 <br />
-                 Image:
-                 <asp:TextBox ID="ImageTextBox" runat="server" Text='<%# Bind("Image") %>' />
-                 <br />
-                 MoTaNgan:
-                 <asp:TextBox ID="MoTaNganTextBox" runat="server" Text='<%# Bind("MoTaNgan") %>' />
-                 <br />
-                 NoiDung:
-                 <asp:TextBox ID="NoiDungTextBox" runat="server" Text='<%# Bind("NoiDung") %>' />
-                 <br />
-                 Username:
-                 <asp:TextBox ID="UsernameTextBox" runat="server" Text='<%# Bind("Username") %>' />
-                 <br />
-                 NgayDang:
-                 <asp:TextBox ID="NgayDangTextBox" runat="server" Text='<%# Bind("NgayDang") %>' />
-                 <br />
-                 <asp:LinkButton ID="UpdateButton" runat="server" CausesValidation="True" CommandName="Update" Text="Update" />
-                 &nbsp;<asp:LinkButton ID="UpdateCancelButton" runat="server" CausesValidation="False" CommandName="Cancel" Text="Cancel" />
+                 <table class="auto-style1">
+                     <tr>
+                         <td class="auto-style5">&nbsp;</td>
+                         <td>
+                             <asp:Label ID="MaBaiBaoLabel1" runat="server" Text='<%# Eval("MaBaiBao") %>' />
+                         </td>
+                         <td>
+                             <asp:LinkButton ID="UpdateButton" runat="server" CausesValidation="True" CommandName="Update" Text="Update" />
+                         </td>
+                     </tr>
+                     <tr>
+                         <td class="auto-style5">Mã thể loại</td>
+                         <td>
+                             <asp:TextBox ID="MaTheLoaiTextBox" runat="server" Text='<%# Bind("MaTheLoai") %>' />
+                         </td>
+                         <td>
+                             <asp:LinkButton ID="UpdateCancelButton" runat="server" CausesValidation="False" CommandName="Cancel" Text="Cancel" />
+                         </td>
+                     </tr>
+                     <tr>
+                         <td class="auto-style5">Tiêu đề</td>
+                         <td>
+                             <asp:TextBox ID="TitleTextBox" runat="server" Text='<%# Bind("Title") %>' />
+                         </td>
+                         <td>&nbsp;</td>
+                     </tr>
+                     <tr>
+                         <td class="auto-style5">Hình ảnh</td>
+                         <td>
+                             <asp:TextBox ID="ImageTextBox" runat="server" Text='<%# Bind("Image") %>' />
+                         </td>
+                         <td>&nbsp;</td>
+                     </tr>
+                     <tr>
+                         <td class="auto-style5">Mô tả ngắn</td>
+                         <td>
+                             <asp:TextBox ID="MoTaNganTextBox" runat="server" Text='<%# Bind("MoTaNgan") %>' />
+                         </td>
+                         <td>&nbsp;</td>
+                     </tr>
+                     <tr>
+                         <td class="auto-style5">Nội dung</td>
+                         <td>
+                             <asp:TextBox ID="NoiDungTextBox" runat="server" Text='<%# Bind("NoiDung") %>' />
+                         </td>
+                         <td>&nbsp;</td>
+                     </tr>
+                     <tr>
+                         <td class="auto-style5">Người đăng</td>
+                         <td>
+                             <asp:TextBox ID="UsernameTextBox" runat="server" Text='<%# Bind("Username") %>' />
+                         </td>
+                         <td>&nbsp;</td>
+                     </tr>
+                     <tr>
+                         <td class="auto-style5">Ngày đăng</td>
+                         <td>
+                             <asp:TextBox ID="NgayDangTextBox" runat="server" Text='<%# Bind("NgayDang") %>' />
+                         </td>
+                         <td>&nbsp;</td>
+                     </tr>
+                 </table>
              </EditItemTemplate>
              <InsertItemTemplate>
-                 MaBaiBao:
-                 <asp:TextBox ID="MaBaiBaoTextBox" runat="server" Text='<%# Bind("MaBaiBao") %>' />
-                 <br />
-                 MaTheLoai:
-                 <asp:TextBox ID="MaTheLoaiTextBox" runat="server" Text='<%# Bind("MaTheLoai") %>' />
-                 <br />
-                 Title:
-                 <asp:TextBox ID="TitleTextBox" runat="server" Text='<%# Bind("Title") %>' />
-                 <br />
-                 Image:
-                 <asp:TextBox ID="ImageTextBox" runat="server" Text='<%# Bind("Image") %>' />
-                 <br />
-                 MoTaNgan:
-                 <asp:TextBox ID="MoTaNganTextBox" runat="server" Text='<%# Bind("MoTaNgan") %>' />
-                 <br />
-                 NoiDung:
-                 <asp:TextBox ID="NoiDungTextBox" runat="server" Text='<%# Bind("NoiDung") %>' />
-                 <br />
-                 Username:
-                 <asp:TextBox ID="UsernameTextBox" runat="server" Text='<%# Bind("Username") %>' />
-                 <br />
-                 NgayDang:
-                 <asp:TextBox ID="NgayDangTextBox" runat="server" Text='<%# Bind("NgayDang") %>' />
-                 <br />
-                 <asp:LinkButton ID="InsertButton" runat="server" CausesValidation="True" CommandName="Insert" Text="Insert" />
-                 &nbsp;<asp:LinkButton ID="InsertCancelButton" runat="server" CausesValidation="False" CommandName="Cancel" Text="Cancel" />
-             </InsertItemTemplate>
-             <ItemTemplate>
                  <table class="auto-style1">
                      <tr>
                          <td>Mã bài báo</td>
                          <td>
-                             <asp:Label ID="MaBaiBaoLabel" runat="server" Text='<%# Eval("MaBaiBao") %>' />
+                             <asp:TextBox ID="MaBaiBaoTextBox" runat="server" Text='<%# Bind("MaBaiBao") %>' />
                          </td>
-                         <td><a href="javascript:__doPostBack('ctl00$EditButton','')">Sửa</a></td>
+                         <td>
+                             <asp:LinkButton ID="InsertButton" runat="server" CausesValidation="True" CommandName="Insert" Text="Insert" />
+                         </td>
                      </tr>
                      <tr>
                          <td>Mã thể loại</td>
                          <td>
-                             <asp:Label ID="MaTheLoaiLabel" runat="server" Text='<%# Bind("MaTheLoai") %>' />
+                             <asp:TextBox ID="MaTheLoaiTextBox" runat="server" Text='<%# Bind("MaTheLoai") %>' />
                          </td>
-                         <td><a href="javascript:__doPostBack('ctl00$DeleteButton','')">Xóa</a></td>
+                         <td>
+                             <asp:LinkButton ID="InsertCancelButton" runat="server" CausesValidation="False" CommandName="Cancel" Text="Cancel" />
+                         </td>
                      </tr>
                      <tr>
                          <td>Tiêu đề</td>
                          <td>
-                             <asp:Label ID="TitleLabel" runat="server" Text='<%# Bind("Title") %>' />
+                             <asp:TextBox ID="TitleTextBox" runat="server" Text='<%# Bind("Title") %>' />
                          </td>
-                         <td><a href="javascript:__doPostBack('ctl00$NewButton','')">Thêm mới</a></td>
+                         <td>&nbsp;</td>
                      </tr>
                      <tr>
                          <td>Hình ảnh</td>
                          <td>
-                             <asp:Label ID="ImageLabel" runat="server" Text='<%# Bind("Image") %>' />
+                             <asp:TextBox ID="ImageTextBox" runat="server" Text='<%# Bind("Image") %>' />
                          </td>
                          <td>&nbsp;</td>
                      </tr>
                      <tr>
                          <td>Mô tả ngắn</td>
                          <td>
-                             <asp:Label ID="MoTaNganLabel" runat="server" Text='<%# Bind("MoTaNgan") %>' />
+                             <asp:TextBox ID="MoTaNganTextBox" runat="server" Text='<%# Bind("MoTaNgan") %>' />
                          </td>
                          <td>&nbsp;</td>
                      </tr>
                      <tr>
                          <td>Nội dung</td>
                          <td>
+                             <asp:TextBox ID="NoiDungTextBox" runat="server" Text='<%# Bind("NoiDung") %>' />
+                         </td>
+                         <td>&nbsp;</td>
+                     </tr>
+                     <tr>
+                         <td>Người đăng</td>
+                         <td>
+                             <asp:TextBox ID="UsernameTextBox" runat="server" Text='<%# Bind("Username") %>' />
+                         </td>
+                         <td>&nbsp;</td>
+                     </tr>
+                     <tr>
+                         <td>Ngày đăng</td>
+                         <td>
+                             <asp:TextBox ID="NgayDangTextBox" runat="server" Text='<%# Bind("NgayDang") %>' />
+                         </td>
+                         <td>&nbsp;</td>
+                     </tr>
+                 </table>
+                 <br />
+                 &nbsp;
+             </InsertItemTemplate>
+             <ItemTemplate>
+                 MaBaiBa<table class="auto-style1">
+                     <tr>
+                         <td class="auto-style3">Mã</td>
+                         <td>
+                             <asp:Label ID="MaBaiBaoLabel" runat="server" Text='<%# Eval("MaBaiBao") %>' />
+                         </td>
+                         <td>
+                             <asp:LinkButton ID="EditButton" runat="server" CausesValidation="False" CommandName="Edit" Text="Edit" />
+                         </td>
+                     </tr>
+                     <tr>
+                         <td class="auto-style3">Thể loại</td>
+                         <td>
+                             <asp:Label ID="MaTheLoaiLabel" runat="server" Text='<%# Bind("MaTheLoai") %>' />
+                         </td>
+                         <td>
+                             <asp:LinkButton ID="DeleteButton" runat="server" CausesValidation="False" CommandName="Delete" Text="Delete" />
+                         </td>
+                     </tr>
+                     <tr>
+                         <td class="auto-style3">Tiêu đề</td>
+                         <td>
+                             <asp:Label ID="TitleLabel" runat="server" Text='<%# Bind("Title") %>' />
+                         </td>
+                         <td>
+                             <asp:LinkButton ID="NewButton" runat="server" CausesValidation="False" CommandName="New" Text="New" />
+                         </td>
+                     </tr>
+                     <tr>
+                         <td class="auto-style3">Hình ảnh</td>
+                         <td>
+                             <asp:Label ID="ImageLabel" runat="server" Text='<%# Bind("Image") %>' />
+                         </td>
+                         <td>&nbsp;</td>
+                     </tr>
+                     <tr>
+                         <td class="auto-style3">Mô tả ngắn</td>
+                         <td>
+                             <asp:Label ID="MoTaNganLabel" runat="server" Text='<%# Bind("MoTaNgan") %>' />
+                         </td>
+                         <td>&nbsp;</td>
+                     </tr>
+                     <tr>
+                         <td class="auto-style3">Nội dung</td>
+                         <td>
                              <asp:Label ID="NoiDungLabel" runat="server" Text='<%# Bind("NoiDung") %>' />
                          </td>
                          <td>&nbsp;</td>
                      </tr>
                      <tr>
-                         <td>Tên người đăng</td>
+                         <td class="auto-style3">Người đăng</td>
                          <td>
                              <asp:Label ID="UsernameLabel" runat="server" Text='<%# Bind("Username") %>' />
                          </td>
                          <td>&nbsp;</td>
                      </tr>
                      <tr>
-                         <td>Ngày đăng</td>
+                         <td class="auto-style3">Ngày đăng<br /></td>
                          <td>
                              <asp:Label ID="NgayDangLabel" runat="server" Text='<%# Bind("NgayDang") %>' />
                          </td>
