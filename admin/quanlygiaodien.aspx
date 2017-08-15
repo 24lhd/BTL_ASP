@@ -35,7 +35,7 @@
             </asp:SqlDataSource>
         </p>
         <p>
-            <asp:FormView ID="fvGiaodien" runat="server" BackColor="White" BorderColor="#CCCCCC" BorderStyle="None" BorderWidth="1px" CellPadding="4" DataKeyNames="IDGiaoDien" DataSourceID="sqlGiaodien" ForeColor="Black" GridLines="Horizontal">
+            <asp:FormView ID="fvGiaodien" runat="server" BackColor="White" BorderColor="#CCCCCC" BorderStyle="None" BorderWidth="1px" CellPadding="4" DataKeyNames="IDGiaoDien" DataSourceID="sqlGiaodien" ForeColor="Black" GridLines="Horizontal" AllowPaging="True">
                 <EditItemTemplate>
                     IDGiaoDien:
                     <asp:Label ID="IDGiaoDienLabel1" runat="server" Text='<%# Eval("IDGiaoDien") %>' />

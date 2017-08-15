@@ -30,7 +30,7 @@
                 <asp:Parameter Name="MaTheLoai" Type="String" />
             </UpdateParameters>
         </asp:SqlDataSource>
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<asp:FormView ID="fvTheloai" runat="server" DataKeyNames="MaTheLoai" DataSourceID="sqlTheloai" BackColor="#CCCCCC" BorderColor="#999999" BorderStyle="Solid" BorderWidth="3px" CellPadding="4" CellSpacing="2" ForeColor="Black" GridLines="Both" Width="337px">
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<asp:FormView ID="fvTheloai" runat="server" DataKeyNames="MaTheLoai" DataSourceID="sqlTheloai" BackColor="#CCCCCC" BorderColor="#999999" BorderStyle="Solid" BorderWidth="3px" CellPadding="4" CellSpacing="2" ForeColor="Black" GridLines="Both" Width="337px" AllowPaging="True">
             <EditItemTemplate>
                 <table class="auto-style1" style="margin-left:50px">
                     <tr>
