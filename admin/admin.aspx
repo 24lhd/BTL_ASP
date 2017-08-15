@@ -22,7 +22,6 @@
                                 <asp:BoundField DataField="Address" HeaderText="Address" SortExpression="Address" />
                             </Columns>
                         </asp:GridView>
-                        <asp:SqlDataSource ID="dsDemo" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>" SelectCommand="SELECT * FROM [NguoiDung]"></asp:SqlDataSource>
             </td></tr></table>
               
                 </form>
