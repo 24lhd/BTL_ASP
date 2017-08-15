@@ -10,11 +10,12 @@
                     <asp:Button ID="bttimkiem" runat="server" OnClick="bttimkiem_Click1" Text="Tìm kiếm" />
                     <asp:Label ID="Label1" runat="server" Text="Label"></asp:Label>
               </td></tr><tr><td>  
-                        <asp:GridView ID="GridView1" runat="server">
+                        <asp:GridView ID="GridView1" runat="server" DataSourceID="dsDemo">
                             <Columns>
                                 <asp:HyperLinkField DataNavigateUrlFields="username" DataNavigateUrlFormatString="~/admin/thongtinnd.aspx?username={0}" NavigateUrl="~/admin/thongtinnd.aspx" Text="chi tiết" />
                             </Columns>
                         </asp:GridView>
+                        <asp:SqlDataSource ID="dsDemo" runat="server"></asp:SqlDataSource>
             </td></tr></table>
               
                 </form>
