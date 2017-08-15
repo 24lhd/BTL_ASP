@@ -1,0 +1,90 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="MasterPage.master.cs" Inherits="MasterPage" %>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title></title>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+        <h1> đây là h1</h1>
+    </asp:ContentPlaceHolder>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+
+</head>
+ 
+    <body>
+
+        <div class="w3-container w3-teal">
+            <h1>Summer Holiday</h1>
+        </div>
+
+        <div class="w3-row-padding w3-margin-top">
+
+            <div class="w3-third">
+                <div class="w3-card-2">
+                    <img src="img_5terre.jpg" style="width: 100%">
+                    <div class="w3-container">
+                        <h4>5 Terre</h4>
+                    </div>
+                </div>
+            </div>
+
+            <div class="w3-third">
+                <div class="w3-card-2">
+                    <img src="img_monterosso.jpg" style="width: 100%">
+                    <div class="w3-container">
+                        <h4>Monterosso</h4>
+                    </div>
+                </div>
+            </div>
+
+            <div class="w3-third">
+                <div class="w3-card-2">
+                    <img src="img_vernazza.jpg" style="width: 100%">
+                    <div class="w3-container">
+                        <h4>Vernazza</h4>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <div class="w3-row-padding w3-margin-top">
+
+            <div class="w3-third">
+                <div class="w3-card-2">
+                    <img src="img_manarola.jpg" style="width: 100%">
+                    <div class="w3-container">
+                        <h4>Manarola</h4>
+                    </div>
+                </div>
+            </div>
+
+            <div class="w3-third">
+                <div class="w3-card-2">
+                    <img src="img_corniglia.jpg" style="width: 100%">
+                    <div class="w3-container">
+                        <h4>Corniglia</h4>
+                    </div>
+                </div>
+            </div>
+
+            <div class="w3-third">
+                <div class="w3-card-2">
+                    <img src="img_riomaggiore.jpg" style="width: 100%">
+                    <div class="w3-container">
+                        <h4>Riomaggiore</h4>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <form id="form1" runat="server">
+            <div>
+                <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+                </asp:ContentPlaceHolder>
+            </div>
+        </form>
+    </body>
+</html>
