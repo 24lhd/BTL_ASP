@@ -5,86 +5,112 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <title></title>
-    <asp:ContentPlaceHolder ID="head" runat="server">
-        <h1> đây là h1</h1>
-    </asp:ContentPlaceHolder>
+
     <meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="/public/css/w3.css">
+    <style type="text/css">
+        body {
+            font-family: Arial, Tahoma;
+            font-size: 12px;
+        }
 
+        #main {
+            width: 1000px;
+            padding: 0;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        #head {
+            height: 100px;
+            background-color: #F5F5F5;
+            border: 1px solid #CDCDCD;
+            margin-bottom: 5px;
+        }
+
+        #head-link {
+            height: 30px;
+            line-height: 30px;
+            padding-left: 10px;
+            padding-right: 10px;
+            border: 1px solid #CDCDCD;
+            background-color: #F5F5F5;
+            margin-bottom: 5px;
+            clear: both;
+        }
+
+        #content {
+            width: 755px;
+            min-height: 400px;
+            border: 1px solid #CDCDCD;
+            float: left;
+            margin-right: 5px;
+            margin-bottom: 5px;
+        }
+
+        #right {
+            width: 234px;
+            min-height: 400px;
+            border: 1px solid #CDCDCD;
+            float: right;
+            margin-bottom: 5px;
+        }
+
+        #footer {
+            height: 50px;
+            clear: both;
+            border: 1px solid #CDCDCD;
+            background-color: #F8F8FF;
+        }
+    </style>
 </head>
- 
-    <body>
 
-        <div class="w3-container w3-teal">
-            <h1>Summer Holiday</h1>
+<body>
+
+
+    <div id="main" runat="server">
+        <div id="head" runat="server">
+            
+                
+                    <asp:ContentPlaceHolder ID="idhead" runat="server">
+                    </asp:ContentPlaceHolder>
+                
+           
+        </div>
+        <div id="headlink" runat="server">
+           
+               
+                    <asp:ContentPlaceHolder ID="idheadlink" runat="server">
+                    </asp:ContentPlaceHolder>
+                
+          
         </div>
 
-        <div class="w3-row-padding w3-margin-top">
+        <div id="content" runat="server">
 
-            <div class="w3-third">
-                <div class="w3-card-2">
-                    <img src="img_5terre.jpg" style="width: 100%">
-                    <div class="w3-container">
-                        <h4>5 Terre</h4>
-                    </div>
-                </div>
-            </div>
-
-            <div class="w3-third">
-                <div class="w3-card-2">
-                    <img src="img_monterosso.jpg" style="width: 100%">
-                    <div class="w3-container">
-                        <h4>Monterosso</h4>
-                    </div>
-                </div>
-            </div>
-
-            <div class="w3-third">
-                <div class="w3-card-2">
-                    <img src="img_vernazza.jpg" style="width: 100%">
-                    <div class="w3-container">
-                        <h4>Vernazza</h4>
-                    </div>
-                </div>
-            </div>
-
+            
+                 
+                    <asp:ContentPlaceHolder ID="idcontent" runat="server">
+                    </asp:ContentPlaceHolder>
+                
+            
         </div>
-        <div class="w3-row-padding w3-margin-top">
-
-            <div class="w3-third">
-                <div class="w3-card-2">
-                    <img src="img_manarola.jpg" style="width: 100%">
-                    <div class="w3-container">
-                        <h4>Manarola</h4>
-                    </div>
-                </div>
-            </div>
-
-            <div class="w3-third">
-                <div class="w3-card-2">
-                    <img src="img_corniglia.jpg" style="width: 100%">
-                    <div class="w3-container">
-                        <h4>Corniglia</h4>
-                    </div>
-                </div>
-            </div>
-
-            <div class="w3-third">
-                <div class="w3-card-2">
-                    <img src="img_riomaggiore.jpg" style="width: 100%">
-                    <div class="w3-container">
-                        <h4>Riomaggiore</h4>
-                    </div>
-                </div>
-            </div>
-
+        <div id="right" runat="server">
+            
+                 
+                    <asp:ContentPlaceHolder ID="idright" runat="server">
+                    </asp:ContentPlaceHolder>
+                 
+            
         </div>
+        <div id="footer" runat="server">
+          
+                
+                    <asp:ContentPlaceHolder ID="idfooter" runat="server">
+                    </asp:ContentPlaceHolder>
+                
+        </div>
+    </div>
 
-        <form id="form1" runat="server">
-            <div>
-                <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
-                </asp:ContentPlaceHolder>
-            </div>
-        </form>
-    </body>
+</body>
 </html>
