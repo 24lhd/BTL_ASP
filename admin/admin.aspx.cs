@@ -9,7 +9,7 @@ using System.Web.UI.WebControls;
 
 public partial class admin_admin : System.Web.UI.Page
 {
-    string connectionString = @"Data Source=(LocalDB)\v11.0;AttachDbFilename=|DataDirectory|\DocBaoOnlineFinal.mdf;Integrated Security=True;Connect Timeout=30";
+    string connectionString = @"Data Source=(LocalDB)\v11.0;AttachDbFilename=|DataDirectory|\DocBao.mdf;Integrated Security=True;Connect Timeout=30";
     protected void Page_Load(object sender, EventArgs e)
     {
         Label1.Text = "";
@@ -31,8 +31,8 @@ public partial class admin_admin : System.Web.UI.Page
         DataTable dataTable = new DataTable();
         SqlDataAdapter adapter = new SqlDataAdapter("SELECT Username,HoTen,Email, Phonenumber,MaQuyen,ImagePro,Address FROM NguoiDung", con);
         adapter.Fill(dataTable);
-        GridView1.DataSource = dataTable;
-        GridView1.DataBind();
+       //GridView1.DataSource = dataTable;
+       //GridView1.DataBind();
 
     }
     private void LoadData(string username)

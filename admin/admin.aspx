@@ -10,12 +10,19 @@
                     <asp:Button ID="bttimkiem" runat="server" OnClick="bttimkiem_Click1" Text="Tìm kiếm" />
                     <asp:Label ID="Label1" runat="server" Text="Label"></asp:Label>
               </td></tr><tr><td>  
-                        <asp:GridView ID="GridView1" runat="server" DataSourceID="dsDemo">
+                        <asp:GridView ID="GridView1" runat="server" DataSourceID="dsDemo" AutoGenerateColumns="False" DataKeyNames="Username">
                             <Columns>
-                                <asp:HyperLinkField DataNavigateUrlFields="username" DataNavigateUrlFormatString="~/admin/thongtinnd.aspx?username={0}" NavigateUrl="~/admin/thongtinnd.aspx" Text="chi tiết" />
+                                <asp:BoundField DataField="Username" HeaderText="Username" ReadOnly="True" SortExpression="Username" />
+                                <asp:BoundField DataField="Password" HeaderText="Password" SortExpression="Password" />
+                                <asp:BoundField DataField="HoTen" HeaderText="HoTen" SortExpression="HoTen" />
+                                <asp:BoundField DataField="Email" HeaderText="Email" SortExpression="Email" />
+                                <asp:BoundField DataField="Phonenumber" HeaderText="Phonenumber" SortExpression="Phonenumber" />
+                                <asp:BoundField DataField="MaQuyen" HeaderText="MaQuyen" SortExpression="MaQuyen" />
+                                <asp:BoundField DataField="ImagePro" HeaderText="ImagePro" SortExpression="ImagePro" />
+                                <asp:BoundField DataField="Address" HeaderText="Address" SortExpression="Address" />
                             </Columns>
                         </asp:GridView>
-                        <asp:SqlDataSource ID="dsDemo" runat="server"></asp:SqlDataSource>
+                        <asp:SqlDataSource ID="dsDemo" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>" SelectCommand="SELECT * FROM [NguoiDung]"></asp:SqlDataSource>
             </td></tr></table>
               
                 </form>

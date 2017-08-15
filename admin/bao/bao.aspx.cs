@@ -15,4 +15,12 @@ public partial class admin_bao_thembao : System.Web.UI.Page
     {
 
     }
+    protected void FormView1_PageIndexChanging1(object sender, FormViewPageEventArgs e)
+    {
+
+    }
+    protected void Upload(object sender, EventArgs e)
+    {
+
+    }
 }
