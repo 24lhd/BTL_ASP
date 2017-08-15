@@ -29,7 +29,7 @@ public partial class admin_admin : System.Web.UI.Page
         SqlConnection con = new SqlConnection(connectionString);
         con.Open();
         DataTable dataTable = new DataTable();
-        SqlDataAdapter adapter = new SqlDataAdapter("SELECT Username,HoTen,Email, Phonenumber,MaQuyen,Address FROM NguoiDung", con);
+        SqlDataAdapter adapter = new SqlDataAdapter("SELECT Username,HoTen,Email, Phonenumber,MaQuyen,ImagePro,Address FROM NguoiDung", con);
         adapter.Fill(dataTable);
         GridView1.DataSource = dataTable;
         GridView1.DataBind();
@@ -37,7 +37,7 @@ public partial class admin_admin : System.Web.UI.Page
     }
     private void LoadData(string username)
     {
-        string text = "SELECT Username,HoTen,Email, Phonenumber,MaQuyen,Address FROM NguoiDung WHERE Username LIKE N'%" + username + "%'";
+        string text = "SELECT Username,HoTen,Email, Phonenumber,MaQuyen,ImagePro,Address FROM NguoiDung WHERE Username LIKE N'%" + username + "%'";
         SqlConnection conn = new SqlConnection(this.connectionString);
         SqlCommand command = new SqlCommand(text, conn);
         conn.Open();
