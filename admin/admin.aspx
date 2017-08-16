@@ -15,7 +15,11 @@
                                 <asp:HyperLinkField DataNavigateUrlFields="username" DataNavigateUrlFormatString="~/admin/thongtinnd.aspx?username={0}" NavigateUrl="~/admin/thongtinnd.aspx" Text="Chi tiết" />
                             </Columns>
                         </asp:GridView>
+<<<<<<< HEAD
                         &nbsp;</td></tr></table>
+=======
+                        </td></tr></table>
+>>>>>>> 0751568147756663984378a89196d0fc56a3a283
               
                 </form>
               
