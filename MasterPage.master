@@ -7,7 +7,7 @@
     <title></title>
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="/public/css/w3.css">
+    <link rel="stylesheet" href="/DocBaoASP/public/css/w3.css"/>
     <style type="text/css">
         body {
             font-family: Arial, Tahoma;
@@ -34,14 +34,8 @@
             margin-bottom: 5px;
         }
 
-        #head-link {
-            height: 30px;
-            line-height: 30px;
-            padding-left: 10px;
-            padding-right: 10px;
-            border: 1px solid #CDCDCD;
-            background-color: #F5F5F5;
-            margin-bottom: 5px;
+        #headlink {
+            display:inline;
             clear: both;
         }
 
@@ -84,9 +78,17 @@
            
         </div>
         <div id="headlink" runat="server">
-           
+           <div class="w3-bar w3-border w3-green">
+
+    <asp:Literal ID="txtMenu" runat="server"></asp:Literal>
+  
+  
+  
+</div>
                
                     <asp:ContentPlaceHolder ID="idheadlink" runat="server">
+
+
                     </asp:ContentPlaceHolder>
                 
           

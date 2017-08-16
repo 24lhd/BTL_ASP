@@ -5,6 +5,9 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="idheadlink" runat="Server">
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="idcontent" runat="Server">
+
+
+    
     <div class="w3-container w3-teal">
         <h1>
             <asp:Literal ID="txtTenTheLoai" runat="server"></asp:Literal></h1>
