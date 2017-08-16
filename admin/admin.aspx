@@ -10,13 +10,16 @@
                     <asp:Button ID="bttimkiem" runat="server" OnClick="bttimkiem_Click1" Text="Tìm kiếm" />
                     <asp:Label ID="Label1" runat="server" Text="Label"></asp:Label>
               </td></tr><tr><td>  
-                        <asp:GridView ID="GridView1" runat="server" DataSourceID="dsDemo">
+                        <asp:GridView ID="GridView1" runat="server">
                             <Columns>
-                                <asp:HyperLinkField DataNavigateUrlFields="username" DataNavigateUrlFormatString="~/admin/thongtinnd.aspx?username={0}" NavigateUrl="~/admin/thongtinnd.aspx" Text="chi tiết" />
+                                <asp:HyperLinkField DataNavigateUrlFields="username" DataNavigateUrlFormatString="~/admin/thongtinnd.aspx?username={0}" NavigateUrl="~/admin/thongtinnd.aspx" Text="Chi tiết" />
                             </Columns>
                         </asp:GridView>
-                        <asp:SqlDataSource ID="dsDemo" runat="server"></asp:SqlDataSource>
-            </td></tr></table>
+<<<<<<< HEAD
+                        &nbsp;</td></tr></table>
+=======
+                        </td></tr></table>
+>>>>>>> 0751568147756663984378a89196d0fc56a3a283
               
                 </form>
               

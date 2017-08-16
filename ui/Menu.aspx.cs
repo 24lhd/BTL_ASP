@@ -6,7 +6,7 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Data;
 using System.Data.SqlClient;
-public partial class MasterPage : System.Web.UI.MasterPage
+public partial class ui_Menu : System.Web.UI.Page
 {
     string connectionString = @"Data Source=(LocalDB)\v11.0;AttachDbFilename=|DataDirectory|\DocBaoV01.mdf;Integrated Security=True;Connect Timeout=30";
     protected void Page_Load(object sender, EventArgs e)
@@ -29,7 +29,7 @@ public partial class MasterPage : System.Web.UI.MasterPage
             string rowItem = "";
             string OneRow = "";
 
-
+          
             foreach (DataRow row in dataTable.Rows)
             {
 
@@ -42,10 +42,7 @@ public partial class MasterPage : System.Web.UI.MasterPage
 
 
             }
-            rowItem = rowItem + "<a href=\"../admin/dangnhap.aspx\" class=\"w3-bar-item w3-button\">Đăng nhập</a>";
-            
-            txtMenu.Text = rowItem;
-
+           
             /* string Title = dataTable.Rows[0]["Title"].ToString();
              txth2.Text = Title;
              string Image = dataTable.Rows[0]["Image"].ToString();

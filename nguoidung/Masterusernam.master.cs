@@ -5,13 +5,9 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
-public partial class admin_bao_thembao : System.Web.UI.Page
+public partial class nguoidung_Masterusernam : System.Web.UI.MasterPage
 {
     protected void Page_Load(object sender, EventArgs e)
-    {
-
-    }
-    protected void FormView1_PageIndexChanging(object sender, FormViewPageEventArgs e)
     {
 
     }
