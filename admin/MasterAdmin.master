@@ -97,7 +97,8 @@ body{
 
 <ul>
   <li><a class="active" href="../theloai/home.aspx">Home</a></li>
-  <li><a href="./quanlytaikhoan.aspx">Quản lý người dùng</a></li>
+  <li><a href="./admin.aspx">Quản lý người dùng</a></li>
+  <li><a href="./themnd.aspx">Thêm người dùng</a></li>
  
 </ul>
     </div>
